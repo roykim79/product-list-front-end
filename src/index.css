@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
 }
 
+
 label {
   color: #777;
   margin-right: 5px;
@@ -21,8 +22,13 @@ ul {
 }
 
 .pagination {
-  margin: auto;
-  width: 100%;
+  text-align: center;
+  width: 100%
+}
+
+.pagination .btn {
+  display: inline-block;
+  margin: 0 2px;
 }
 
 .product {
@@ -61,7 +67,7 @@ ul {
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
   .product {
     width: 45%;
     margin: 10px;

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { fetchProducts } from "../actions";
 
 class Pagination extends Component {
   getPage(i) {
-    // add the page number to be fetched to the params object
-    const newParams = Object.assign(this.props.params, { page: i })
+    // add the page number to be fetched to the params object from the
+    // application's state. Use an empty object as the target object so
+    // it is not saved when a new category is searched for
+    const newParams = Object.assign({}, this.props.params, { page: i })
 
     // fetch the products with the params object created
     this.props.fetchProducts(newParams);
@@ -17,15 +18,28 @@ class Pagination extends Component {
     const pageCount = this.props.productCount / 9;
     const paginationLinks = [];
 
-    // for each page needed, create a button and add it to the array
-    // of pagination links
-    for (let i = 1; i < pageCount + 1; i++) {
-      paginationLinks.push(
-        <button key={i} href="#" onClick={() => this.getPage(i)}>{i}</button>
-      );
-    }
+    // pagination links are only needed when there is more than 1 page
+    if (pageCount > 1) {
+      // for each page needed, create a button and add it to the array
+      // of pagination links
+      for (let i = 1; i < pageCount + 1; i++) {
+        paginationLinks.push(
+          <button 
+            className="btn btn-default"
+            key={i} 
+            href="#" 
+            onClick={() => this.getPage(i)}>
+            {i}
+          </button>
+        );
+      }
 
-    return paginationLinks;
+      return paginationLinks;
+    } else {
+      return (
+        <div></div>
+      )
+    }
   }
 }
 
