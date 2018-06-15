@@ -19,4 +19,5 @@ ReactDOM.render(
       <Products />
     </div>
   </Provider>,
-  document.getElementById('root'));
+  document.getElementById('root')
+);

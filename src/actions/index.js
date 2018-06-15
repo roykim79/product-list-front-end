@@ -3,7 +3,6 @@ import axios from 'axios';
 export const FETCH_PRODUCTS = 'fetch_products';
 export const SET_SORT_METHOD = 'set_sort_method';
 export const SET_CATEGORY = 'set_category';
-// export const SET_SORT_METHOD = 'set_sort_method';
 
 const ROOT_URL = 'http://localhost:8000';
 
